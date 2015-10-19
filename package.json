@@ -2,7 +2,9 @@
   "name": "generator-cloudfour-core-webapp",
   "version": "0.1.0",
   "repository": "cloudfour/generator-core-webapp",
-  "description": "Generate core skeleton and gulp tasks for basic webapps",
+  "description": "Generate core skeleton and gulp tasks for basic web apps",
+  "author": "The Cloud Four Team",
+  "main": "app/index.js",
   "engines": {
     "node": ">=0.12.0"
   },
