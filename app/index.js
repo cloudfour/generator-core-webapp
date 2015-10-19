@@ -6,7 +6,7 @@ module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
     this.option(
-      'withTemplates',
+      'templates',
       {
         desc     : 'Add "html" task and support for data-driven Handlebars template compilation with helpers and front matter',
         type     : Boolean,
@@ -16,6 +16,18 @@ module.exports = generators.Base.extend({
     this.features = {
       templates: this.options.withTemplates
     };
+  },
+  prompting: function () {
+    var done = this.async();
+    this.prompt([{
+      name: 'templates',
+      message: 'Add "html" task and template compilation?',
+      type: 'confirm',
+      default: false
+    }], function (answers) {
+      this.features.templates = answers.templates;
+      done();
+    }.bind(this));
   },
   writing: {
     config: function () {
@@ -34,11 +46,12 @@ module.exports = generators.Base.extend({
       this.fs.copyTpl(
         this.templatePath('gulpfile.babel.js'),
         this.destinationPath('gulpfile.babel.js'),
-        { }
+        this.features
       );
-      this.fs.copy(
-        this.sourceRoot() + '/gulp*',
-        this.destinationRoot()
+      this.fs.copyTpl(
+        this.templatePath('gulp.config.js'),
+        this.destinationPath('gulp.config.js'),
+        this.features
       );
     },
     packageJSON: function () {
