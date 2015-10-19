@@ -5,6 +5,17 @@ var yosay      = require('yosay');
 module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
+    this.option(
+      'withTemplates',
+      {
+        desc     : 'Add "html" task and support for data-driven Handlebars template compilation with helpers and front matter',
+        type     : Boolean,
+        defaults : false
+      }
+    );
+    this.features = {
+      templates: this.options.withTemplates
+    };
   },
   writing: {
     config: function () {
@@ -20,6 +31,11 @@ module.exports = generators.Base.extend({
       }
     },
     gulp: function () {
+      this.fs.copyTpl(
+        this.templatePath('gulpfile.babel.js'),
+        this.destinationPath('gulpfile.babel.js'),
+        { }
+      );
       this.fs.copy(
         this.sourceRoot() + '/gulp*',
         this.destinationRoot()
