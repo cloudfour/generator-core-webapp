@@ -1,5 +1,5 @@
 {
-  "name": "generator-cloudfour-gulp-webapp",
+  "name": "generator-cloudfour-core-webapp",
   "version": "0.1.0",
   "repository": "cloudfour/generator-core-webapp",
   "description": "Generate core skeleton and gulp tasks for basic webapps",
