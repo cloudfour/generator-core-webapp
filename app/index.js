@@ -7,16 +7,22 @@ module.exports = generators.Base.extend({
     generators.Base.apply(this, arguments);
   },
   writing: {
+    config: function () {
+      var configs = {
+        'gitignore'   : '.gitignore',
+        'node-version': '.node-version'
+      };
+      for (var sourceFile in configs) {
+        this.fs.copy(
+          this.templatePath(sourceFile),
+          this.destinationPath(configs[sourceFile])
+        );
+      }
+    },
     gulp: function () {
       this.fs.copy(
         this.sourceRoot() + '/gulp*',
         this.destinationRoot()
-      );
-    },
-    nodeVersion: function () {
-      this.fs.copy(
-        this.templatePath('node-version'),
-        this.destinationPath('.node-version')
       );
     },
     packageJSON: function () {
