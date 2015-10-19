@@ -1,0 +1,5 @@
+import config from './gulp.config.js';
+import gulp from 'gulp';
+import tasks from 'core-gulp-tasks';
+
+tasks.clean(gulp, config.clean);

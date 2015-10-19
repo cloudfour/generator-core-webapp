@@ -7,6 +7,12 @@ module.exports = generators.Base.extend({
     generators.Base.apply(this, arguments);
   },
   writing: {
+    gulp: function () {
+      this.fs.copy(
+        this.sourceRoot() + '/gulp*',
+        this.destinationRoot()
+      );
+    },
     packageJSON: function () {
       this.fs.copy(
         this.templatePath('_package.json'),
