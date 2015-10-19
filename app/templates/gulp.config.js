@@ -3,11 +3,24 @@ let src = './src',
 
 export default {
   clean: {
-    dest: `${dest}`
+    dest: dest
   },
   css: {
-    dest: `${dest}`,
+    dest: dest,
     optimize: false,
     src: `${src}/main.css`
+  },
+  js: {
+    optimize: false,
+    plugins: {
+      webpack: {
+        entry: `${src}/main.js`,
+        output: {
+          path: dest,
+          filename: 'main.js'
+        },
+        plugins: []
+      }
+    }
   }
 };
