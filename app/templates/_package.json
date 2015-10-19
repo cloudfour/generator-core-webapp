@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "core-gulp-tasks": "cloudfour/core-gulp-tasks.git",
+    "gulp": "^3.9.0"
+  }
+}
