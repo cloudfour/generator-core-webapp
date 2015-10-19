@@ -9,5 +9,3 @@ tasks.serve(gulp, config.serve);
 tasks.watch(gulp, config.watch);
 
 
-tasks.html(gulp, config.html);
-

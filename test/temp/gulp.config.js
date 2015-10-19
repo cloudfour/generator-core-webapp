@@ -42,19 +42,5 @@ let config = {
 };
 
 
-config.html = {
-  sharedData: {},
-  dest: dest,
-  layoutDir: `${src}/layouts`,
-  plugins: {
-    handlebars: {
-      ignorePartials: true,
-      batch: [`${src}/partials`],
-    }
-  },
-  src: `${src}/**/*.hbs`,
-  templateExt: 'hbs'
-};
-
 
 export default config;
