@@ -21,7 +21,9 @@ describe('general', function () {
       'gulp.config.js',
       'gulpfile.babel.js',
       '.gitignore',
-      '.node-version'
+      '.node-version',
+      'src/main.js',
+      'src/main.css'
     ]);
   });
 });
