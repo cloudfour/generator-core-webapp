@@ -22,5 +22,21 @@ export default {
         plugins: []
       }
     }
+  },
+  serve: {
+    plugins: {
+      browserSync: {
+        files: ['**/*.*'],
+        server: { baseDir: dest }
+      }
+    }
+  },
+  watch: {
+    watchers: [
+      {
+        match: [`${src}/**/*.css`],
+        tasks: ['css']
+      }
+    ]
   }
 };
