@@ -1,0 +1,23 @@
+{
+  "name": "generator-cloudfour-gulp-webapp",
+  "version": "0.1.0",
+  "repository": "cloudfour/generator-core-webapp",
+  "description": "Generate core skeleton and gulp tasks for basic webapps",
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "web",
+    "app",
+    "front-end",
+    "gulp"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.20.2",
+    "yosay": "^1.0.5"
+  }
+}
