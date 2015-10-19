@@ -13,19 +13,17 @@ module.exports = generators.Base.extend({
         defaults : false
       }
     );
-    this.features = {
-      templates: this.options.withTemplates
-    };
   },
   prompting: function () {
     var done = this.async();
     this.prompt([{
-      name: 'templates',
+      name   : 'templates',
       message: 'Add "html" task and template compilation?',
-      type: 'confirm',
+      type   : 'confirm',
       default: false
     }], function (answers) {
-      this.features.templates = answers.templates;
+      this.features = {};
+      this.features.templates = this.options.templates || answers.templates;
       done();
     }.bind(this));
   },

@@ -1,7 +1,7 @@
 let src = './src',
   dest = './dist';
 
-export default {
+let config = {
   clean: {
     dest: dest
   },
@@ -40,3 +40,21 @@ export default {
     ]
   }
 };
+
+
+config.html = {
+  sharedData: {},
+  dest: dest,
+  layoutDir: `${src}/layouts`,
+  plugins: {
+    handlebars: {
+      ignorePartials: true,
+      batch: [`${src}/partials`],
+    }
+  },
+  src: `${src}/**/*.hbs`,
+  templateExt: 'hbs'
+};
+
+
+export default config;
