@@ -1,7 +1,7 @@
 let src = './src',
   dest = './dist';
 
-export default {
+let config = {
   clean: {
     dest: dest
   },
@@ -40,3 +40,7 @@ export default {
     ]
   }
 };
+
+
+
+export default config;
