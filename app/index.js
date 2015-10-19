@@ -13,10 +13,22 @@ module.exports = generators.Base.extend({
         this.destinationRoot()
       );
     },
+    nodeVersion: function () {
+      this.fs.copy(
+        this.templatePath('node-version'),
+        this.destinationPath('.node-version')
+      );
+    },
     packageJSON: function () {
       this.fs.copy(
         this.templatePath('_package.json'),
         this.destinationPath('package.json')
+      );
+    },
+    src: function () {
+      this.fs.copy(
+        this.sourceRoot() + '/src/*',
+        this.destinationRoot() + '/src/'
       );
     }
   },
