@@ -10,3 +10,9 @@
 2. `yo cloudfour-core-webapp`
 3. `npm install`
 4. `gulp --tasks`
+
+# Tests
+
+(Mocha)
+
+1. `npm test`
