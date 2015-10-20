@@ -32,6 +32,12 @@ describe('general', function () {
         'src/main.css'
       ]);
     });
+
+    it('creates a package.json', function () {
+      assert.file('package.json');
+      // Name should be set to default for the associated prompt
+      assert.fileContent('package.json', 'cloudfour-web-project');
+    });
   });
   describe('dependency management', function () {
     var npmStub;
