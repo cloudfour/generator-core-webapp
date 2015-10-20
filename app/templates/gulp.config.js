@@ -55,6 +55,10 @@ config.html = {
   src: `${src}/**/*.hbs`,
   templateExt: 'hbs'
 };
+config.watch.watchers.push({
+    match: [`${src}/**/*.hbs`],
+    tasks: ['html']
+});
 <% } %>
 
 export default config;
