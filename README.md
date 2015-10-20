@@ -8,8 +8,7 @@
 
 1. Create a new directory; `cd` into it
 2. `yo cloudfour-core-webapp`
-3. `npm install`
-4. `gulp --tasks`
+3. `gulp --tasks`
 
 # Tests
 

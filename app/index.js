@@ -17,12 +17,19 @@ module.exports = generators.Base.extend({
   prompting: function () {
     var done = this.async();
     this.prompt([{
+      name: 'name',
+      message: 'Project name for package.json',
+      type: 'input',
+      default: 'cloudfour-web-project'
+    },
+    {
       name   : 'templates',
       message: 'Add "html" task and template compilation?',
       type   : 'confirm',
       default: false
     }], function (answers) {
       this.features = {};
+      this.features.name      = answers.name;
       this.features.templates = this.options.templates || answers.templates;
       done();
     }.bind(this));
@@ -53,9 +60,10 @@ module.exports = generators.Base.extend({
       );
     },
     packageJSON: function () {
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('_package.json'),
-        this.destinationPath('package.json')
+        this.destinationPath('package.json'),
+        this.features
       );
     },
     src: function () {
@@ -64,6 +72,13 @@ module.exports = generators.Base.extend({
         this.destinationRoot() + '/src/'
       );
     }
+  },
+  install: function () {
+    this.npmInstall([
+      'babel-core',
+      'gulp',
+      'cloudfour/core-gulp-tasks'
+    ], { 'saveDev': true });
   },
   end: {
     sayBye: function () {
