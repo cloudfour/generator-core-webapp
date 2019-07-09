@@ -9,7 +9,9 @@
     "node": ">=0.12.0"
   },
   "scripts": {
-    "test": "mocha --reporter spec --timeout 3000"
+    "test": "mocha --reporter spec --timeout 3000",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "files": [
     "app"
@@ -24,7 +26,8 @@
   "dependencies": {
     "yeoman-assert": "^2.0.0",
     "yeoman-generator": "^0.24.1",
-    "yosay": "^1.0.5"
+    "yosay": "^1.0.5",
+    "snyk": "^1.192.4"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -32,5 +35,6 @@
     "mocha": "^2.3.3",
     "sinon": "^1.17.1",
     "sinon-chai": "^2.8.0"
-  }
+  },
+  "snyk": true
 }
