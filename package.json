@@ -24,7 +24,7 @@
   "dependencies": {
     "yeoman-assert": "^2.0.0",
     "yeoman-generator": "^0.24.1",
-    "yosay": "^1.0.5"
+    "yosay": "^2.0.0"
   },
   "devDependencies": {
     "babel": "^5.8.23",
